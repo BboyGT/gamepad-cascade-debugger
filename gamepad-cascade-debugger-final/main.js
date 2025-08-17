@@ -1,5 +1,5 @@
-// Friendly, plain JS. Multi-pad. Recording. Exports. Snapshots. Ghost replay.
-// Fixed labels (no % artifacts). CSS @layer debug. Light/Dark theme. Controller indicator.
+// Multi-pad. Recording. Exports. Snapshots. Ghost replay.
+// CSS @layer debug. Light/Dark theme. Controller indicator.
 
 const padsEl = document.getElementById('pads');
 const startBtn = document.getElementById('startBtn');
@@ -21,7 +21,7 @@ const recFramesEl = document.getElementById('recFrames');
 const recDurEl = document.getElementById('recDur');
 const snapsEl = document.getElementById('snaps');
 
-// Keep it human: names are friendly and comments explain intent
+// comments explain intent
 const BUTTON_NAMES = [
   'A / Cross', 'B / Circle', 'X / Square', 'Y / Triangle',
   'LB / L1', 'RB / R1', 'LT / L2 (analog)', 'RT / R2 (analog)',
