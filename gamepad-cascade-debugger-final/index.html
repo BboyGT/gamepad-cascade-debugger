@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gamepad Debugger — CSS Layers · Multi-Gamepad</title>
+  <meta name="description" content="A friendly Gamepad API debugger with CSS cascade layers, light/dark mode, recording, export, and ghost replay." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-dark">
+  <header class="site-header">
+    <h1>Gamepad Debugger <small>· CSS Layers · Multi</small></h1>
+    <p class="tagline">Peek at controller input in real-time. Toggle the <code>@layer debug</code> overlay when you need extra signal.</p>
+
+    <div class="controls">
+      <button id="startBtn" class="btn-primary">Start</button>
+      <button id="toggleDebug" class="btn-outline" aria-pressed="false" title="Show outlines/labels from the @layer debug styles">Debug Overlay</button>
+      <button id="themeBtn" class="btn-outline" title="Switch Light/Dark">Light/Dark</button>
+      <label class="dz">
+        Deadzone
+        <input id="deadzone" type="range" min="0" max="0.5" step="0.01" value="0.12" />
+        <output id="dzOut">0.12</output>
+      </label>
+    </div>
+
+    <div class="controls">
+      <button id="recordBtn" class="btn-outline" title="Record a short session">Record</button>
+      <button id="snapshotBtn" class="btn-outline" title="Save the current state as a tiny card">Snapshot</button>
+      <button id="replayBtn" class="btn-outline" disabled title="Replay the last recording as a 'ghost'">Replay Ghost</button>
+      <div class="exports">
+        <button id="exportJsonBtn" class="btn-outline" disabled>Export JSON</button>
+        <button id="exportCsvBtn" class="btn-outline" disabled>Export CSV</button>
+      </div>
+    </div>
+
+    <div class="statusbar">
+      <span id="status" class="status">Connect a controller by USB/Bluetooth. Click <strong>Start</strong>, then press any button to wake the API.</span>
+      <span id="connIndicator" class="conn is-off" title="Controller connection indicator">●</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section id="pads" class="pads" aria-live="polite"></section>
+    <aside class="side">
+      <h2 class="side__title">Snapshots</h2>
+      <div id="snaps" class="snaps" aria-live="polite"></div>
+      <h2 class="side__title">Recording</h2>
+      <div id="recInfo" class="recinfo">
+        <div>State: <span id="recState">Idle</span></div>
+        <div>Frames: <span id="recFrames">0</span></div>
+        <div>Duration: <span id="recDur">0.0s</span></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built for: <strong>“Debugging the Gamepad API with CSS Cascade Layers”</strong>. Modern desktop browsers required (HTTPS or <code>localhost</code>).</p>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
